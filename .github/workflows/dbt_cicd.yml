@@ -1,4 +1,5 @@
 name: dbt CI/CD Pipeline
+
 on:
   push:
     branches:
@@ -10,7 +11,8 @@ on:
 jobs:
   dbt-test:
     runs-on: ubuntu-latest
-
+    env:
+      USER: gostudent 
     services:
       pgadmin:
         image: dpage/pgadmin4
@@ -55,17 +57,17 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
-
+          
       - name: Run dbt debug
-        run: dbt debug --profiles-dir .
-
+        run: dbt debug --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt 
+        
       - name: Run dbt models
-        run: dbt run --profiles-dir . --target dev
-
+        run: dbt run --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target dev
+        
       - name: Run dbt tests
-        run: dbt test --profiles-dir . --target dev
-
-  merge-to-prod:
+        run: dbt test --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target dev
+        
+  merge-to-master:
     needs: dbt-test
     if: success()  # Only run if previous job succeeded
     runs-on: ubuntu-latest
@@ -73,18 +75,42 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Merge dev to prod
+      - name: Merge dev to master
         run: |
           git config --local user.email "barlaskiziltan@example.com"  
           git config --local user.name "murat"  
-          git checkout prod
-          git merge dev
-          git push origin prod
+          git fetch origin
+          git checkout master
+          git merge origin/dev
+          git push origin master
 
   run-dbt-prod:
-    needs: merge-to-prod
+    needs: merge-to-master
     if: success()  # Only run if previous job succeeded
     runs-on: ubuntu-latest
+    env:
+      USER: gostudent 
+
+    services:
+      pgadmin:
+        image: dpage/pgadmin4
+        ports:
+          - "8888:80"
+        options: > 
+          --env PGADMIN_DEFAULT_EMAIL=gostudentadmin@gostudent.com 
+          --env PGADMIN_DEFAULT_PASSWORD=gostudent
+
+      postgres:
+        image: postgres:latest
+        ports:
+          - "5432:5432"
+        options: > 
+          --env POSTGRES_USER=postgres 
+          --env POSTGRES_PASSWORD=postgres 
+          --env POSTGRES_DB=gostudent
+        volumes:
+          - ./init:/docker-entrypoint-initdb.d
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -97,7 +123,18 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install dbt-postgres=1.8.0  
+          pip install dbt-postgres==1.8.0 pandas==2.0.3 sqlalchemy==2.0.35 numpy==1.24.4
+          
+      - name: Run Initialization Script
+        run: |
+          echo "running initialization.."
+          PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE DATABASE gostudent;"
+          PGPASSWORD=postgres psql -h localhost -U postgres -d gostudent -f ./init/sql_commands.sql
 
+      - name: Load Tables
+        run: |
+          echo "Loading tables..."
+          python ./load_data.py
+          
       - name: Run dbt in production schema
-        run: dbt run --profiles-dir . --target prod
+        run: dbt run --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
