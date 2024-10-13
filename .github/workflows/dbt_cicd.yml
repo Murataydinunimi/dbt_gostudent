@@ -83,6 +83,7 @@ jobs:
         run: |
           git config --local user.email "barlaskiziltan@example.com"  
           git config --local user.name "murat"  
+          git fetch origin
           git checkout master
           git merge dev
           git push origin master
