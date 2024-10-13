@@ -17,5 +17,5 @@ gostudent_dbt:  # Profile name
       user: postgres
       pass: postgres
       dbname: gostudent  # Same database as dev
-      schema: "prod"  # Use a fixed schema for production
+      schema: "prod_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}" # Use a fixed schema for production
   target: dev  # Default target for dbt
