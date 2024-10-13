@@ -1,5 +1,4 @@
 name: dbt CI/CD Pipeline
-
 on:
   push:
     branches:
@@ -56,7 +55,7 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
-          
+
       - name: Run dbt debug
         run: dbt debug --profiles-dir .
 
