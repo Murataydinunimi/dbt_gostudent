@@ -71,7 +71,7 @@ jobs:
       - name: Run dbt tests
         run: dbt test --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target dev
         
-  merge-to-prod:
+  merge-to-master:
     needs: dbt-test
     if: success()  # Only run if previous job succeeded
     runs-on: ubuntu-latest
@@ -79,16 +79,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Merge dev to prod
+      - name: Merge dev to master
         run: |
           git config --local user.email "barlaskiziltan@example.com"  
           git config --local user.name "murat"  
-          git checkout prod
+          git checkout master
           git merge dev
-          git push origin prod
+          git push origin master
 
   run-dbt-prod:
-    needs: merge-to-prod
+    needs: merge-to-master
     if: success()  # Only run if previous job succeeded
     runs-on: ubuntu-latest
     steps:
