@@ -54,7 +54,7 @@ jobs:
 
       - name: Load Tables
         run: |
-          echo "Loading tables...."
+          echo "Loading tables....."
           python ./load_data.py
 
       - name: Run dbt debug
