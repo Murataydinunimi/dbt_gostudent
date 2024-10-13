@@ -56,6 +56,11 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
+
+       - name: List gostudent_dbt directory
+         run: |
+             ls -l ./gostudent_dbt
+
           
       - name: Run dbt debug
         run: dbt debug --profiles-dir ./gostudent_dbt
