@@ -107,4 +107,4 @@ jobs:
           pip install dbt-postgres==1.8.0 pandas==2.0.3 sqlalchemy==2.0.35 numpy==1.24.4
 
       - name: Run dbt in production schema
-        run: dbt run --profiles-dir . --target prod
+        run: dbt run --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
