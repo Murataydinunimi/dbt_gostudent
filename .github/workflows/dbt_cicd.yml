@@ -63,16 +63,16 @@ jobs:
 
           
       - name: Run dbt debug
-        run: dbt debug --profiles-dir ./gostudent_dbt
-        working-directory: ./gostudent_dbt
+        run: dbt debug --profiles-dir .
+        working-directory: dbt_gostudent/gostudent_dbt
         
       - name: Run dbt models
-        run: dbt run --profiles-dir ./gostudent_dbt --target dev
-        working-directory: ./gostudent_dbt
+        run: dbt run --profiles-dir . --target dev
+        working-directory: dbt_gostudent/gostudent_dbt
         
       - name: Run dbt tests
-        run: dbt test --profiles-dir ./gostudent_dbt --target dev
-        working-directory: ./gostudent_dbt
+        run: dbt test --profiles-dir . --target dev
+        working-directory: dbt_gostudent/gostudent_dbt
         
   merge-to-prod:
     needs: dbt-test
