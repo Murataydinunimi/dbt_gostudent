@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: calls_table
+    schema: raw
+    tables:
+      - name: call_dataset
+
+  - name: clv_table
+    schema: raw
+    tables:
+      - name: clv_dataset
+  
+  - name: customer_table
+    schema: raw
+    tables:
+      - name: customer_dataset
+  
+  - name: lead_table
+    schema: raw
+    tables:
+      - name: lead_dataset
+
+  - name: marketing_cost_table
+    schema: raw
+    tables:
+      - name: marketing_costs_dataset
+
+  - name: sales_cost_table
+    schema: raw
+    tables:
+      - name: sales_cost_dataset

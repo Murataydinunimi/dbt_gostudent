@@ -1,0 +1,21 @@
+gostudent_dbt:  # Profile name
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: localhost
+      port: 5432
+      user: postgres
+      pass: postgres
+      dbname: gostudent  # Use the same database for both environments
+      schema: "dev_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}"  # Dynamic schema for dev
+    prod:
+      type: postgres
+      threads: 1
+      host: localhost  # Same host as dev
+      port: 5432
+      user: postgres
+      pass: postgres
+      dbname: gostudent  # Same database as dev
+      schema: "prod"  # Use a fixed schema for production
+  target: dev  # Default target for dbt
