@@ -101,6 +101,9 @@ Click on it to see better.
 
 **Since all the datalakes creation follow the same pattern, we are using a macro get_datalake_model for not DRY**
 
+![{CFFD4C09-5F42-4AF0-B128-50F6BD373C99}](https://github.com/user-attachments/assets/54a994ad-c13a-4f7b-8ca8-6eaad7ee1740)
+
+
 For each dataset provided in the raw, we have a datalake, staging and datawarehouse. We have 7 datamarts.
 
 ![{8EA31FBD-60B9-4034-B1F9-8C6EADEF079D}](https://github.com/user-attachments/assets/999aaf68-1227-4a7d-878c-dffdf65b074d)
