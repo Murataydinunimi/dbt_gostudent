@@ -101,7 +101,12 @@ Click on it to see better.
 
 **Since all the datalakes creation follow the same pattern, we are using a macro get_datalake_model for not DRY**
 
-For each dataset provided in the raw, we have a datalake, staging and datawarehouse. We have 7 datamarts answering some business questions like
+For each dataset provided in the raw, we have a datalake, staging and datawarehouse. We have 7 datamarts.
+
+![{8EA31FBD-60B9-4034-B1F9-8C6EADEF079D}](https://github.com/user-attachments/assets/999aaf68-1227-4a7d-878c-dffdf65b074d)
+
+And they answer some business questions like
+
 1) dm_cac_per_period shows the **customer acquisition cost** for each period available in the data like **2022-11,2022-12** etc.
 2) dm_cac_per_source (higher granularity) shows the **customer acquisition cost** for each marketing source, **Google, Meta, Other**, and period
 3) dm_ser_per_period shows the **sales efficiency ratio** for each period.
@@ -122,6 +127,5 @@ Given all these datamarts, we can answer;
 
 
 
-![{8EA31FBD-60B9-4034-B1F9-8C6EADEF079D}](https://github.com/user-attachments/assets/999aaf68-1227-4a7d-878c-dffdf65b074d)
 
 
