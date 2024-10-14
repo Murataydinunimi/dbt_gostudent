@@ -3,19 +3,19 @@ gostudent_dbt:
     dev:
       type: postgres
       threads: 1
-      host: localhost
-      port: 5432
-      user: postgres
-      pass: postgres
-      dbname: gostudent  
+      host: "{{ env_var('DB_HOST') }}"
+      port: "{{ env_var('DB_PORT') | int }}"
+      user: "{{ env_var('DB_USER') }}"
+      pass: "{{ env_var('DB_PASS') }}"
+      dbname: "{{ env_var('DB_NAME') }}" 
       schema: "dev_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}"  # Dynamic schema for dev
     prod:
       type: postgres
       threads: 1
-      host: localhost  
-      port: 5432
-      user: postgres
-      pass: postgres
-      dbname: gostudent  
+      host: "{{ env_var('DB_HOST') }}" 
+      port: "{{ env_var('DB_PORT') | int }}"
+      user: "{{ env_var('DB_USER') }}"
+      pass: "{{ env_var('DB_PASS') }}"
+      dbname: "{{ env_var('DB_NAME') }}"   
       schema: "prod_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}" # Dynamic schema for prod
   target: dev  # Default target for dbt
