@@ -63,7 +63,7 @@ call_30_agg AS (
 c_attemps AS (
     SELECT 
         *,
-        CAST(c_attemps_customer_converted / NULLIF(c_attemps_total_customer, 0) AS DECIMAL) AS c_attemps_conversion_ratio,
+        CAST(c_attemps_customer_converted / NULLIF(c_attemps_total_customer, 0) AS DECIMAL)*100 AS c_attemps_conversion_ratio,
         ROW_NUMBER() OVER () AS rn
     FROM 
         call_attempts_agg
@@ -72,7 +72,7 @@ c_attemps AS (
 c_30 AS (
     SELECT 
         *,
-        CAST(c_30_customer_converted / NULLIF(c_30_total_customer, 0) AS DECIMAL) AS c_30_conversion_ratio,
+        CAST(c_30_customer_converted / NULLIF(c_30_total_customer, 0) AS DECIMAL)*100 AS c_30_conversion_ratio,
         ROW_NUMBER() OVER () AS rn
     FROM 
         call_30_agg
