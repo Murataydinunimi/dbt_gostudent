@@ -14,14 +14,6 @@ jobs:
     env:
       USER: gostudent 
     services:
-      pgadmin:
-        image: dpage/pgadmin4
-        ports:
-          - "8888:80"
-        options: > 
-          --env PGADMIN_DEFAULT_EMAIL=gostudentadmin@gostudent.com 
-          --env PGADMIN_DEFAULT_PASSWORD=gostudent
-
       postgres:
         image: postgres:latest
         ports:
@@ -137,4 +129,4 @@ jobs:
           python ./load_data.py
           
       - name: Run dbt in production schema
-        run: dbt run --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
+        run: dbt build --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
