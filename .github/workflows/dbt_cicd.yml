@@ -121,4 +121,4 @@ jobs:
           python ./load_data.py
           
       - name: Run dbt in production schema
-        run: dbt run --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
+        run: dbt build --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
