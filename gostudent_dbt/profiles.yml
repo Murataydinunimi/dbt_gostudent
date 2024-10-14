@@ -1,4 +1,4 @@
-gostudent_dbt:  # Profile name
+gostudent_dbt:  
   outputs:
     dev:
       type: postgres
@@ -7,15 +7,15 @@ gostudent_dbt:  # Profile name
       port: 5432
       user: postgres
       pass: postgres
-      dbname: gostudent  # Use the same database for both environments
+      dbname: gostudent  
       schema: "dev_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}"  # Dynamic schema for dev
     prod:
       type: postgres
       threads: 1
-      host: localhost  # Same host as dev
+      host: localhost  
       port: 5432
       user: postgres
       pass: postgres
-      dbname: gostudent  # Same database as dev
-      schema: "prod_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}" # Use a fixed schema for production
+      dbname: gostudent  
+      schema: "prod_{{ env_var('USER', 'unknown') | lower | replace('_', '') }}" # Dynamic schema for prod
   target: dev  # Default target for dbt
