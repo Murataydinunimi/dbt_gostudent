@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install dbt-postgres==1.8.0 pandas==2.0.3 sqlalchemy==2.0.35 numpy==1.24.4 python-dotenv==1.0.1
+          pip install dbt-postgres==1.8.0 pandas==2.0.3 sqlalchemy==2.0.35 numpy==1.24.4
 
       - name: Run Initialization Script
         run: |
@@ -49,17 +49,7 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
-          echo "DB_HOST=${{ secrets.DB_HOST }}" >> $GITHUB_ENV
-          echo "DB_USER=${{ secrets.DB_USER }}" >> $GITHUB_ENV
-          echo "DB_PASS=${{ secrets.DB_PASS }}" >> $GITHUB_ENV
-          echo "DB_PORT=${{ secrets.DB_PORT }}" >> $GITHUB_ENV
-          echo "DB_NAME=${{ secrets.DB_NAME }}" >> $GITHUB_ENV
-
-      - name: Load env variables
-        run: |
-          echo "Loading env variables"
-          python ./load_dot_env.py
-
+          
       - name: Run dbt debug
         run: dbt debug --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt 
         
@@ -94,14 +84,6 @@ jobs:
       USER: gostudent 
 
     services:
-      pgadmin:
-        image: dpage/pgadmin4
-        ports:
-          - "8888:80"
-        options: > 
-          --env PGADMIN_DEFAULT_EMAIL=gostudentadmin@gostudent.com 
-          --env PGADMIN_DEFAULT_PASSWORD=gostudent
-
       postgres:
         image: postgres:latest
         ports:
@@ -125,7 +107,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install dbt-postgres==1.8.0 pandas==2.0.3 sqlalchemy==2.0.35 numpy==1.24.4 python-dotenv==1.0.1
+          pip install dbt-postgres==1.8.0 pandas==2.0.3 sqlalchemy==2.0.35 numpy==1.24.4
           
       - name: Run Initialization Script
         run: |
@@ -137,11 +119,6 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
-
-      - name: Load env variables
-        run: |
-          echo "Loading env variables"
-          python ./load_dot_env.py
-
+          
       - name: Run dbt in production schema
         run: dbt build --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
