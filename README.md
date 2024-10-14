@@ -11,6 +11,7 @@ We have a medallion-like data architecture that follows the following structure:
 5) Lastly in the Datamart layer, we will have tables that feed the potential dashboards.
 
 Each layer will have 4 folders. **Calls, costs, customers, revenues**
+
 Each model in the datalake will start with the prefix **dl** as dbt documentation suggests. The same applies to other layers and they go like **stg, dwh, dm**.
 
 This architecture will provide us a great deal of modularity and cleanliness. We will be easily guided through the models thanks to the folder structure and consistent naming convention.
