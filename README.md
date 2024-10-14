@@ -120,10 +120,11 @@ Given all these datamarts, we can answer;
 2) What is the lowest **cac** value period ? --> 2023-01.
 3) What is the most sales effective channel ( **Sales Efficency Ratio**) ? --> For all the periods, it is **other**
 4) What is the highest **ser** value period ? --> 2023-02.
-5) When we got the highest lead conversion ? --> 2023-01.
-6) Which channel provided the highest lead conversion ? --> For all the periods, it is **google**
-7) Do call attempts and number of successful conversations having more than 30min affect the leads ? Absolutely, but it is more like polynomial pattern.
-8) How would you assess the development of the quality of leads in terms of likelihood of becoming a customer ? I would train the callers in terms of call_attempts, having successful conversations longer than 30min, and that they being from a known city. Message length did not seem to be important for me.
+5) How profitable is this investment ? The **ser** for almost all the periods is over 3 which is sign of an extremely good sales. Also, the **cac** is for almost all the periods with the exception of 2022-11 has way lower values than the average **customer lifetime value**. **THIS INVESTMENT IS GREAT!**
+6) When we got the highest lead conversion ? --> 2023-01.
+7) Which channel provided the highest lead conversion ? --> For all the periods, it is **google**
+8) Do call attempts and number of successful conversations having more than 30min affect the leads ? Absolutely, but it is more like polynomial pattern.
+9) How would you assess the development of the quality of leads in terms of likelihood of becoming a customer ? I would train the callers in terms of call_attempts, having successful conversations longer than 30min, and that they being from a known city. Message length did not seem to be important for me.
 
 
 
