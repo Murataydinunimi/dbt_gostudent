@@ -49,7 +49,12 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
-          
+
+      - name: Load env variables
+        run: |
+          echo "Loading env variables"
+          python ./load_dot_env.py
+
       - name: Run dbt debug
         run: dbt debug --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt 
         
@@ -127,6 +132,11 @@ jobs:
         run: |
           echo "Loading tables..."
           python ./load_data.py
+
+      - name: Load env variables
+        run: |
+          echo "Loading env variables"
+          python ./load_dot_env.py
           
       - name: Run dbt in production schema
         run: dbt build --profiles-dir ./gostudent_dbt --project-dir ./gostudent_dbt --target prod
