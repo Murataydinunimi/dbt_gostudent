@@ -260,7 +260,23 @@ The resulting models are re-uploaded to the postgres. The transformations can th
 
 2) **Draw an Architecture Daigram for Deploying a ML model via API**
 
+There are many ways to deploy a ML model with API. I studided many of them and thought that the one that google docs suggest might be a robust one.
+
    ![{DAECC69A-28D1-4CAF-9311-1B17B5B34ED1}](https://github.com/user-attachments/assets/cd855679-0fd3-4841-8ecb-c31db0ace941)
+
+We have a feature db which is a centralized repo  that stores, manages, and serves machine learning features for consistent use in model training and real-time predictions, typically created and maintained by data scientists and engineers.
+In our case, it has an api through which it provides data.
+In the **dev** environment,
+1) the data analyst get the data from feature db in an offline mode in batches and do data analysis.
+2) We then do iterative model experimentation like trying different algorithms, models, data, different hyperparameters etc.
+3) When things look promising, we push our code to the source repository. Here **Continuous Integration** start and packages our pipeline 
+4) We deploy the model to the prod.
+5) We again get the data from feature db, we do a series of steps like data validation, preparation, model training etc.
+6) We put the trained model in model registery and deploy it through **REST API**.
+7) When there is a post/predict request to the REST API, it gets the data in real time from feature db, does whatever the model needs to do and responds back to the client.
+
+Thank you!
+   
 
 
 
