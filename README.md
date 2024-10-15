@@ -217,7 +217,7 @@ If only the previous step is concluded successfully, we can run our production d
   4) Load Tables.
   5) Run dbt build ( both run and test
 
-## HOW IT WORKS?
+## HOW IT WORKS?   BONUS QUESTION
 
 
 ```bash
@@ -240,6 +240,19 @@ git push origin feature/my_cicd
 ```
 
 Now go to github and create a PR to the dev. When you merge the PR, the actions will get triggered.
+
+![{76B6D57F-A538-4585-BA26-B175257B7437}](https://github.com/user-attachments/assets/0c843c5f-9ed5-4c82-ae43-45392efa3d12)
+
+
+Our code is nicely integrated, pipeline is triggered and completed successfully. Notice that tables created in dev and prod have different prefixes. They start with **dev** if they are in dev, **prod** otherwise.
+
+
+## EXPLAIN DATA AND ML PIPELINE DIAGRAMS. BONUS QUESTION 2.
+
+The diagrams I drew can be found in the **architectures** folder. Let's first see the high level data pipeline.
+
+![{5875F762-E704-4606-B56B-2A19B00553C3}](https://github.com/user-attachments/assets/8f3bbe78-54c1-4d01-8cce-db5c2257ac64)
+
 
 
 
