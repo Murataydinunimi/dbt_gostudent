@@ -101,6 +101,29 @@ where password is **postgres** as well.
 
 Our tables are now available in raw schema waiting for our dbt transformations to be applied!
 
+
+```bash
+#cd into dbt directory
+cd gostudent_dbt
+
+#set a user name to integrate into your development environment name
+#mine
+set user=murat
+
+```
+Run the dbt models
+
+```bash
+#run dbt models
+dbt run --profiles-dir .
+```
+
+![{B80B3471-BD9A-4867-BD35-1E3B6EB6F55C}](https://github.com/user-attachments/assets/56315ff6-af88-4227-8df3-445fa3f7e2be)
+
+All of our models are successfully created. Notice that our naming convention is different for each layer. It is specifically 
+
+**{environment_name}_{user}_{schema_name}_{table_name}.
+
 ## UNDERSTAND THE DATA TRANSFORMATIONS
 
 Here is our beautiful dbt lineage graph showing how our transformations move around.
