@@ -101,7 +101,7 @@ where password is **postgres** as well.
 
 ![{3A50678D-8E9A-438B-A6E3-469A406062FD}](https://github.com/user-attachments/assets/c98148f8-d1be-4fa1-94e2-8363937c36fa)
 
-Our tables are now available in raw schema waiting for our dbt transformations to be applied!
+Our tables (**sources in dbt, we will come back to this later on**) are now available in raw schema waiting for our dbt transformations to be applied!
 
 
 ```bash
