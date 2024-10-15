@@ -82,7 +82,7 @@ Once the repo is cloned, we are ready to pull our images and build the container
 #Run the docker compose
 docker compose up -d
 ```
-When the containers are ready, the postgre container will be initialized with the **sql_commands.sql** file that we have under the init folder. 
+When the containers are ready, the postgre container will be initialized with the **sql_commands.sql** file that we have under the init folder. Notice that we mounted a volume to the entrypoint of postgres. We mounted specifically the **sql_commands.sql** file.
 This sql file basically creates the tables for the raw layer.
 
 Once the tables are created, we are ready to ingest the raw data into the tables using a python script **load_data.py** that is found in root directory. Notice that raw data are under the **data** folder.
