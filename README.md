@@ -154,7 +154,9 @@ As you can see, for each raw data provided we have a table.
 ![{9252C60E-5145-48D6-BF0B-A29FE85927C1}](https://github.com/user-attachments/assets/bfa8c6f5-5147-4720-ad25-bd2538fc503f)
 
 
-I used the raw layer as sources. Sources are abstractions on top of our input tables. Unlike seeds, they are ingested in dwh.
+I used the raw layer as sources. Sources are abstractions on top of our input tables. Unlike seeds, they are already ingested in dwh.
+Since we are doing a small project with small datasets, our data could be seen as seeds too but we assume that they arrive in huge amounts at pre-scheduled intervals, so they are **sources**.
+
 
 Then for each row, we have an incremental datalake.
 
