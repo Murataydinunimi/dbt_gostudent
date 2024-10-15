@@ -1,3 +1,4 @@
 pandas==2.0.3
 sqlalchemy==2.0.21
-numpy==1.26.4
+numpy==1.24.4
+dbt-postgres==1.8.0
