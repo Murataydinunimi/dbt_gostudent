@@ -142,7 +142,7 @@ dbt docs generate
 #Serve the docs
 dbt docs serve
 ```
-This will create a localhost webserver where you can interact visually with your dbt models and documentation.
+This will create a localhost webserver where you can interact visually with your dbt models and documentation. Here is a piece of our lineage graph filtered for **dm_ser_per_source** model.
 
 
 ![{F26B8BA1-4486-4590-8421-61B30607DFCA}](https://github.com/user-attachments/assets/877febf3-1f8b-4527-8c37-04364fc36359)
