@@ -93,7 +93,7 @@ The **load_data.py** has two main functions. It has a csv separator detector sin
 #Load the tables
 python load_data.py
 ```
-We can now go to pgadmin in  **http://localhost:8888/**. To do it, you need to create a new server. Give a name to the server and enter the connection details as 
+We can now go to pgadmin in  **http://localhost:8888/**. There, you need to create a new server. Give a name to the server and enter the connection details as 
 
 ![{5BA8FA3F-AC89-4D2B-B133-BCE416D969E4}](https://github.com/user-attachments/assets/cf27c1c7-f8bb-4c39-bf6f-22858513ec03)
 
