@@ -61,7 +61,7 @@ This is how a **docker-compose.yml** file looks like ;
 
 ![{F2C5DC8B-AAB6-410E-A081-5C3C4771E4FD}](https://github.com/user-attachments/assets/0886964a-15fd-4623-b0a5-c8f485f50471)
 
-Under the services keyword, we specify the images the we would like pull and build our containers over. We specify the ports where the containers will be listening to us along with the passwords, users etc.
+Under the services keyword, we specify the images that we would like pull and build our containers over. We specify the ports where the containers will be listening to us along with the passwords, users etc.
 
 
 
