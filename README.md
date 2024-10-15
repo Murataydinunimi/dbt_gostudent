@@ -38,6 +38,13 @@ virtualenv venv
 #Activate virtualenv
 venv\Scripts\activate
 ```
+We now need to install dbt and its specific connector with postgres.
+
+```bash
+pip install dbt-postgres==1.8.0
+```
+
+
 At this point, if we would want to create a dbt project from scratch, we would run **dbt init** and choose our respective connector.
 However, a fully configured dbt project is already provided in this repo.
 
@@ -173,6 +180,18 @@ For each stg, we have a dwh model.
 
 
 Notice in the **lineage graph** that **dim_clv**, **dim_lead**, **dim_customers** all together feed **fct_revenues_per_source** which then together with **fct_mkt_source_per_source** feed the dm report.
+
+
+## HOW CI/CD WORK?
+
+
+Since we understood how the projects works, how it is structured, how our transformations are done,  we can now move to the next stage where we continuously integrate our new models and deploy them.
+
+I used **github actions** to do it. It is in **.github\workflows\dbt_cicd.yml**.
+
+We have a pipeline that triggered on a **push** to dev or **pull request** to dev.
+
+The actions start pulling the same postgres image we used locally. Install the python dependencies that we use locally.
 
 
 
