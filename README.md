@@ -1,5 +1,5 @@
 ## INTRODUCTION
-The dbt models in this projects run on a postgres image. The project also make us of a pgadmin image where we are more flexible in creating our transformations.
+The dbt models in this project run on a postgres image. The project also make us of a pgadmin image where we are more flexible in creating our transformations.
 We have a medallion-like data architecture that follows the following structure:
 
 ![data_architecture](https://github.com/user-attachments/assets/9ac67c82-4989-49a9-aff0-6272231a4858)
