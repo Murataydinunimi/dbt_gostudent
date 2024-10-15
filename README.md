@@ -45,6 +45,8 @@ pip install dbt-postgres==1.8.0
 ```
 
 
+**For other libraries and their versions refer to the requirements.txt file**.
+
 At this point, if we would want to create a dbt project from scratch, we would run **dbt init** and choose our respective connector.
 However, a fully configured dbt project is already provided in this repo.
 
@@ -191,7 +193,29 @@ I used **github actions** to do it. It is in **.github\workflows\dbt_cicd.yml**.
 
 We have a pipeline that triggered on a **push** to dev or **pull request** to dev.
 
-The actions start pulling the same postgres image we used locally. Install the python dependencies that we use locally.
+The actions work in the following order
+**FIRST STEP**
+  1) start pulling the same postgres image we used locally.
+  2)  Install the python dependencies that we use locally.
+  3)  Run the sql initialization scripts to create the tables in postgres.
+  4)  Load tables with python.
+  5)  Run dbt debug
+  6)  Run dbt models
+  7)  Run dbt test
+
+**SECOND STEP**
+
+If only the previous step is concluded successfully, we have a merge to the master branch from dev. Our new code is merged to the master
+
+**THIRD STEP***
+
+If only the previous step is concluded successfully, we can run our production dbt code.
+
+  1) Create the postgres container.
+  2) Install python dependencies.
+  3) Run initialization script.
+  4) Load Tables.
+  5) Run dbt build ( both run and test)
 
 
 
