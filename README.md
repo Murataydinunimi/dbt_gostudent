@@ -225,14 +225,23 @@ If only the previous step is concluded successfully, we can run our production d
 git checkout -b feature/my_cicd
 ```
 
-```bash
 Do your modifications.
 
+```bash
 #Add the changes to staging.
 git add .
 
 #commit changes
 git commit -m "my modifications"
+
+#push the changes
+
+git push origin feature/my_cicd
 ```
+
+Now go to github and create a PR to the dev. When you merge the PR, the actions will get triggered.
+
+
+
 
 
