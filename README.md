@@ -87,6 +87,8 @@ This sql file basically creates the tables for the raw layer.
 
 Once the tables are created, we are ready to ingest the raw data into the tables using a python script **load_data.py** that is found in root directory. Notice that raw data are under the **data** folder.
 
+The **load_data.py** has two main functions. It has a csv separator detector since each csv has a different separator and another function that uploads the data to the postgres tables.
+
 ```bash
 #Load the tables
 python load_data.py
