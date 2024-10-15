@@ -122,7 +122,7 @@ dbt run --profiles-dir .
 
 All of our models are successfully created. Notice that our naming convention is different for each layer. It is specifically 
 
-**{environment_name}_{user}_{schema_name}_{table_name}.
+**{environment_name}_{user}_{schema_name}_{table_name}**.
 
 ## UNDERSTAND THE DATA TRANSFORMATIONS
 
