@@ -122,7 +122,7 @@ dbt run --profiles-dir .
 
 All of our models are successfully created. Notice that our naming convention is different for each layer. It is specifically 
 
-**{environment_name}_{user}_{schema_name}_{table_name}**.
+**environment_name_user_schema_name_table_name**. Example --> **dev_murat_data_warehouse.dim_calls_range_mapping** or **dev_murat_data_mart.dm_ser_per_source**
 
 ## UNDERSTAND THE DATA TRANSFORMATIONS
 
