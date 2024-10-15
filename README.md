@@ -214,7 +214,7 @@ Since we understood how the projects works, how it is structured, how our transf
 
 I used **github actions** to do it. It is in **.github\workflows\dbt_cicd.yml**.
 
-We have a pipeline that triggered on a **push** to dev or **pull request** to dev.
+We have a pipeline that is triggered on a **push** to dev or **pull request** to dev.
 
 The actions work in the following order
 **FIRST STEP**
