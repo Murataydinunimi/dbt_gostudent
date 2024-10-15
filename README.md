@@ -207,7 +207,7 @@ For each stg, we have a dwh model.
 Notice in the **lineage graph** that **dim_clv**, **dim_lead**, **dim_customers** all together feed **fct_revenues_per_source** which then together with **fct_mkt_source_per_source** feed the dm report.
 
 
-## HOW CI/CD WORK?
+## HOW CI/CD WORK? BONUS QUESTION
 
 
 Since we understood how the projects works, how it is structured, how our transformations are done,  we can now move to the next stage where we continuously integrate our new models and deploy them.
@@ -240,7 +240,7 @@ If only the previous step is concluded successfully, we can run our production d
   4) Load Tables.
   5) Run dbt build ( both run and test
 
-## HOW IT WORKS?   BONUS QUESTION
+## HOW IT WORKS?   
 
 
 ```bash
