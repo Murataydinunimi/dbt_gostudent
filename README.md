@@ -295,7 +295,7 @@ In the **dev** environment,
 3) When things look promising, we push our code to the source repository. Here **Continuous Integration** start and packages our pipeline 
 4) We deploy the model to the **prod**.
 5) We again get the data from feature db, we do a series of steps like data validation, preparation, model training etc. We train the model in **batches**.
-6) We put the trained model in model registery and deploy it through **REST API**.
+6) We put the trained model in model registry and deploy it through **REST API**.
 7) When there is a post/predict request to the REST API, it gets the data in real time from feature db, does whatever the model needs to do and responds back to the client.
 
 Thank you!
