@@ -249,9 +249,21 @@ Our code is nicely integrated, pipeline is triggered and completed successfully.
 
 ## EXPLAIN DATA AND ML PIPELINE DIAGRAMS. BONUS QUESTION 2.
 
-The diagrams I drew can be found in the **architectures** folder. Let's first see the high level data pipeline.
+The diagrams I drew can be found in the **architectures** folder. 
+
+1) **High level data pipeline**
 
 ![{5875F762-E704-4606-B56B-2A19B00553C3}](https://github.com/user-attachments/assets/8f3bbe78-54c1-4d01-8cce-db5c2257ac64)
+
+Our sources arrive at different formats and ingested in the datalake. Using Apache airflow we ingested them in postgres.  Then again using other Apache transformation dags, we run dbt models. 
+The resulting models are re-uploaded to the postgres. The transformations can then be used for BI consumption in Apache superset(preset) which is open source, synchronized and nicely integrated with dbt
+
+2) **Draw an Architecture Daigram for Deploying a ML model via API**
+
+   ![{DAECC69A-28D1-4CAF-9311-1B17B5B34ED1}](https://github.com/user-attachments/assets/cd855679-0fd3-4841-8ecb-c31db0ace941)
+
+
+
 
 
 
