@@ -132,6 +132,34 @@ Given all these datamarts, we can answer;
 9) How would you assess the development of the quality of leads in terms of likelihood of becoming a customer ? I would train the callers in terms of call_attempts, having successful conversations longer than 30min, and that they being from a known city. Message length did not seem to be important for me.
 
 
+I now would like to show you how specifically a given dm is created.
+
+![{F26B8BA1-4486-4590-8421-61B30607DFCA}](https://github.com/user-attachments/assets/877febf3-1f8b-4527-8c37-04364fc36359)
+
+
+As you can see, for each raw data provided we have a table.
+
+
+![{9252C60E-5145-48D6-BF0B-A29FE85927C1}](https://github.com/user-attachments/assets/bfa8c6f5-5147-4720-ad25-bd2538fc503f)
+
+
+I used the raw layer as sources. Sources are abstractions on top of our input tables. Unlike seeds, they are ingested in dwh.
+
+Then for each row, we have an incremental datalake.
+
+![{0F122EB3-3016-43D8-8A6E-ECCEF1BB10AF}](https://github.com/user-attachments/assets/ae74f11e-66dd-4564-8711-aac4dd1e4c57)
+
+Then for each dl model, we have a stg model with small transformations.
+
+![{071B8E75-D7FF-46F0-A985-8645AA77A94A}](https://github.com/user-attachments/assets/faf63bb1-acc0-4440-8467-4029c3510149)
+
+
+For each stg, we have a dwh model.
+
+![{0355C1CA-AD17-43F7-BB49-06758AD4B202}](https://github.com/user-attachments/assets/d7c43e17-8815-471a-95cb-dac32758680b)
+
+
+Notice in the **lineage graph** that **dim_clv**, **dim_lead**, **dim_customers** all together feed **fct_revenues_per_source** which then together with **fct_mkt_source_per_source** feed the dm report.
 
 
 
