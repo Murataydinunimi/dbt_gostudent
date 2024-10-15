@@ -55,7 +55,7 @@ This is how it looks like;
 01_dl means the configurations for the models that are under 01_dl folder. They are materialized as incremental. They have **data_lake** and **dl** as tags, so we can run all of them using these shortcuts.
 **full_refresh** is false because we never want to lose our historical data. All the models of this folder will be materialized under the **data_lake** schema (e.g., **db_name.data_lake.model_name**)
 
-As said before, our dbt models will be running inside a postgres container and we will have another container, pgadmin, for interacting with our data in a more flexible way. Since we have more than one containers, using docker-compose becomes highly useful.
+As said before, our dbt models will be running inside a postgres container and we will have another container, pgadmin, for interacting with our data in a more flexible way. Since we have more than one container, using docker-compose becomes highly useful.
 It is a configuration file used with Docker Compose, a tool that simplifies defining and running multi-container Docker applications. This is how a **docker-compose.yml** file looks like ;
 
 ![{F2C5DC8B-AAB6-410E-A081-5C3C4771E4FD}](https://github.com/user-attachments/assets/0886964a-15fd-4623-b0a5-c8f485f50471)
