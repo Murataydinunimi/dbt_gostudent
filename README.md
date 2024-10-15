@@ -293,8 +293,8 @@ In the **dev** environment,
 1) the data analyst get the data from feature db in an offline mode in batches and do data analysis.
 2) We then do iterative model experimentation like trying different algorithms, models, data, different hyperparameters etc.
 3) When things look promising, we push our code to the source repository. Here **Continuous Integration** start and packages our pipeline 
-4) We deploy the model to the prod.
-5) We again get the data from feature db, we do a series of steps like data validation, preparation, model training etc.
+4) We deploy the model to the **prod**.
+5) We again get the data from feature db, we do a series of steps like data validation, preparation, model training etc. We train in the model in **batches**.
 6) We put the trained model in model registery and deploy it through **REST API**.
 7) When there is a post/predict request to the REST API, it gets the data in real time from feature db, does whatever the model needs to do and responds back to the client.
 
