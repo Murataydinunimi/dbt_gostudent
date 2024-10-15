@@ -192,7 +192,7 @@ I used the raw layer as sources. Sources are abstractions on top of our input ta
 Since we are doing a small project with small datasets, our data could be seen as seeds too but we assume that they arrive in huge amounts at pre-scheduled intervals, so they are **sources**.
 
 
-Then for each row, we have an incremental datalake.
+Then for each raw, we have an incremental datalake.
 
 ![{0F122EB3-3016-43D8-8A6E-ECCEF1BB10AF}](https://github.com/user-attachments/assets/ae74f11e-66dd-4564-8711-aac4dd1e4c57)
 
