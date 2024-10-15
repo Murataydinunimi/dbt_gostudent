@@ -205,7 +205,7 @@ The actions work in the following order
 
 **SECOND STEP**
 
-If only the previous step is concluded successfully, we have a merge to the master branch from dev. Our new code is merged to the master
+If only the previous step is concluded successfully, we have a merge to the master branch from dev. Our new code is merged to the master.
 
 **THIRD STEP***
 
