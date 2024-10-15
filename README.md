@@ -238,7 +238,7 @@ If only the previous step is concluded successfully, we can run our production d
   2) Install python dependencies.
   3) Run initialization script.
   4) Load Tables.
-  5) Run dbt build ( both run and test
+  5) Run dbt build ( both run and test )
 
 ## HOW IT WORKS?   
 
