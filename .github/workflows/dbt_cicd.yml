@@ -1,13 +1,11 @@
 name: dbt CI/CD Pipeline
 
 on:
-  push:
-    branches:
-      - dev  # Trigger on pushes to the dev branch
   pull_request:
     branches:
-      - dev  # Trigger on pull requests to the dev branch
-
+      - dev
+    types:
+      - closed
 jobs:
   dbt-test:
     runs-on: ubuntu-latest
