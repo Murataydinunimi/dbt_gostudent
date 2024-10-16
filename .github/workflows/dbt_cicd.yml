@@ -69,7 +69,7 @@ jobs:
 
       - name: Merge dev to master
         run: |
-          git config --local user.email "barlaskiziltan@example.com"  
+          git config --local user.email "barlaskiziltan@gmail.com"  
           git config --local user.name "murat"  
           git fetch origin
           git checkout master
