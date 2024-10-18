@@ -45,7 +45,6 @@ pip install -r requirements
 ```
 
 
-**For other libraries and their versions refer to the requirements.txt file**.
 
 At this point, if we would want to create a dbt project from scratch, we would run **dbt init** and choose our respective connector.
 However, a fully configured dbt project is already provided in this repo.
