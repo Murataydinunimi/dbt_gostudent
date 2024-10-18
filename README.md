@@ -41,7 +41,7 @@ venv\Scripts\activate
 We now need to install dbt and its specific connector with postgres.
 
 ```bash
-pip install dbt-postgres==1.8.0
+pip install -r requirements
 ```
 
 
